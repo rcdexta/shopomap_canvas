@@ -17,11 +17,6 @@ Graph.prototype = {
 		console.log("]");
 	},
 	
-	addEdge: function(source,target){
-		source.edges.push(target);
-		target.edges.push(source);
-	},
-	
 	traverse: function(node, visited){
 	  visited = visited || [];
 	  visited.push(node);
@@ -61,7 +56,7 @@ Graph.prototype = {
 	printArray: function(arr){
 		var str = "";
 		for(var i=0;i<arr.length;i++){
-			str = str + arr[i].toString();	
+			str = str + arr[i].toString() + ",";	
 		}		
 		console.log("[" + str + "]");
 	}
