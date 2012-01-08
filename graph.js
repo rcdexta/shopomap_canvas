@@ -55,10 +55,12 @@ Graph.prototype = {
 	
 	poIShortestPath: function(source, target){
 		var sourceNode = this.nearestNodeTo(source);
-		console.log(sourceNode.toString());
 		var targetNode = this.nearestNodeTo(target);
-		console.log(targetNode.toString());		
 		this.nodeShortestPath(sourceNode, targetNode);
+		this.path.shift();
+		this.path.unshift(source);
+		this.path.pop();
+		this.path.push(target);
 	},
 	
 	printArray: function(arr){

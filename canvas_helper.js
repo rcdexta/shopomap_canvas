@@ -2,6 +2,8 @@ var canvasHelper = {
 	draw: function(context, path){
 		
 		context.beginPath();
+		
+		context.lineWidth = 3;
   
 	  	context.moveTo(path[0].x, path[0].y);
   

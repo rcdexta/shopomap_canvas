@@ -8,6 +8,7 @@ var gruppoPam 	= new Graph.PoI("Gruppo Pam", 84,98);
 var expedia 	= new Graph.PoI("Expedia", 245, 99);
 var pandw 		= new Graph.PoI("P&W", 89, 204);
 var blueLabel1	= new Graph.PoI("Blue Label1", 256, 205);
+var bcg 		= new Graph.PoI("BCG", 249, 425);
 var jigsaw 		= new Graph.PoI("Jigsaw", 85, 334);
 var blueLabel2 	= new Graph.PoI("Blue Label2", 243, 333);
 var analytics 	= new Graph.PoI("Analytics", 88, 433);
