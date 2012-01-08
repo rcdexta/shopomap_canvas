@@ -15,5 +15,9 @@ Graph.Node.prototype = {
 			this.edges.push(nodes[i]);
 			nodes[i].edges.push(this);
 		}
+	},
+	
+	distanceFrom: function(poi){
+		return Math.sqrt(Math.pow((this.x - poi.x),2) + Math.pow((this.y - poi.y),2));
 	}
 }

@@ -29,7 +29,7 @@ Graph.prototype = {
 		}
 	},
 	
-	shortestPath: function(node, target, parents, visited){
+	nodeShortestPath: function(node, target, parents, visited){
 	
 		visited = visited || [];
 		parents = parents || [];
@@ -45,12 +45,20 @@ Graph.prototype = {
 			var nextNode = node.edges[i];
 			if (visited.indexOf(nextNode) == -1){
 				parents.push(node);
-				result = this.shortestPath(nextNode, target, parents, visited); 
+				result = this.nodeShortestPath(nextNode, target, parents, visited); 
 				if (result == -1) return;
 				parents.pop();
 			}
 		}		
 
+	},
+	
+	poIShortestPath: function(source, target){
+		var sourceNode = this.nearestNodeTo(source);
+		console.log(sourceNode.toString());
+		var targetNode = this.nearestNodeTo(target);
+		console.log(targetNode.toString());		
+		this.nodeShortestPath(sourceNode, targetNode);
 	},
 	
 	printArray: function(arr){
@@ -59,6 +67,19 @@ Graph.prototype = {
 			str = str + arr[i].toString() + ",";	
 		}		
 		console.log("[" + str + "]");
+	},
+	
+	nearestNodeTo: function(poi){
+		var minDistance = Number.POSITIVE_INFINITY;
+		var nearestNode;
+		for(var i=0;i<this.nodes.length;i++){
+			var distance = this.nodes[i].distanceFrom(poi);
+			if (distance < minDistance){
+				nearestNode = this.nodes[i];
+				minDistance = distance;
+			}	
+		}
+		return nearestNode;
 	}
 	
 }

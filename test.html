@@ -6,6 +6,7 @@
 	<script type="text/javascript" src="node.js"></script>
 	<script type="text/javascript" src="stub_data.js"></script>
 	<script type="text/javascript" src="canvas_helper.js"></script>
+	<script type="text/javascript" src="point_of_interest.js"></script>
 
 </head>
 <body>
@@ -19,26 +20,7 @@
 </div>
 
 <script type="text/javascript">
-  function getCursorPosition(e) {
-    var x;
-    var y;
-    if (e.pageX || e.pageY) {
-      x = e.pageX;
-      y = e.pageY;
-    }
-    else {
-      x = e.clientX + document.body.scrollLeft +
-           document.documentElement.scrollLeft;
-      y = e.clientY + document.body.scrollTop +
-           document.documentElement.scrollTop;
-    }
     
-    x -= canvas.offsetLeft;
-	y -= canvas.offsetTop;
-	
-	console.log(x,y)
-  }
-  
   var image_canvas = document.getElementById("image_layer");
   var image_context = image_canvas.getContext("2d");
   
@@ -49,19 +31,21 @@
     image_context.drawImage(cat, 0, 0, 800, 600);
   };
   
+    
   //Draw paths
   var canvas = document.getElementById("path_layer");
   var context = canvas.getContext("2d");
   
-  canvas.addEventListener("click", getCursorPosition, false);
+  canvas.addEventListener("click", canvasHelper.getCursorPosition, false);
   
-  graph.shortestPath(nodeQ, nodeD);
+  graph.poIShortestPath(jigsaw, beach1);
   
   graph.printArray(graph.path);
  
   canvasHelper.draw(context, graph.path);
   
-  </script>
+  
+</script>
 
 </body>
 </html>
