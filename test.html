@@ -12,7 +12,6 @@
 <body>
 
 <div style="position: relative;">
-	hello
  <canvas id="image_layer" width="800" height="600" 
    style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
  <canvas id="path_layer" width="800" height="600" 
@@ -25,10 +24,10 @@
   var image_context = image_canvas.getContext("2d");
   
   //Draw background image
-  var cat = new Image();
-  cat.src = "TW_Ascendas_Layout.png";
-  cat.onload = function() {
-    image_context.drawImage(cat, 0, 0, 800, 600);
+  var background = new Image();
+  background.src = "TW_Ascendas_Layout.png";
+  background.onload = function() {
+    image_context.drawImage(background, 0, 0, 800, 600);
   };
   
     

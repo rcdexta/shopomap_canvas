@@ -11,8 +11,14 @@ var canvasHelper = {
     		context.lineTo(path[i].x, path[i].y);
     		context.fillRect(path[i].x-2, path[i].y-2, 4, 4);
   		}
+  		
+  		var pin = new Image();
+  		pin.src = "pin-target.png";
+  		pin.onload = function() {
+			context.drawImage(pin, path[path.length-1].x-32, path[path.length-1].y-56);
+		};
 
-  		context.strokeStyle = "#000";
+  		context.strokeStyle = "brown";
   		context.stroke();
 	},
 	
