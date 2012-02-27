@@ -41,6 +41,15 @@ var canvasHelper = {
 		y -= canvas.offsetTop;
 		
 		console.log(x,y)
-  }
+  },
 
+	drawPoint: function(point){
+		var context = $("#drawing")[0].getContext("2d");
+		context.beginPath();
+		context.arc(point.pageX, point.pageY, 5, 0, 2 * Math.PI, false);
+		context.closePath();
+	    context.lineWidth = 5;
+	    context.strokeStyle = "black";
+	    context.stroke();
+	}
 };
